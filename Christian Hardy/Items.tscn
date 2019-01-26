@@ -1,0 +1,76 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://item.gd" type="Script" id=1]
+[ext_resource path="res://err.png" type="Texture" id=2]
+[ext_resource path="res://press_enter.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 125.323, 96.9095 )
+
+[node name="Items" type="Area2D"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.0
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 1 )
+_sections_unfolded = [ "Visibility" ]
+ItemImage = ExtResource( 2 )
+ItemName = null
+
+[node name="PlayerDetector" type="CollisionShape2D" parent="." index="0"]
+
+position = Vector2( 0, 3.15116 )
+scale = Vector2( 1, 1.16126 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="Sprite" type="Sprite" parent="." index="1"]
+
+_sections_unfolded = [ "Offset" ]
+
+[node name="Button" type="TextureButton" parent="." index="2"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -6.0
+margin_top = -196.0
+margin_right = 1042.0
+margin_bottom = 104.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 3 )
+texture_hover = ExtResource( 3 )
+texture_disabled = ExtResource( 3 )
+texture_focused = ExtResource( 3 )
+_sections_unfolded = [ "Textures", "Theme", "Visibility", "custom_fonts" ]
+
+[connection signal="area_entered" from="." to="." method="_on_Items_area_entered"]
+
+[connection signal="area_exited" from="." to="." method="_on_Items_area_exited"]
+
+[connection signal="body_entered" from="." to="." method="_on_Items_body_entered"]
+
+[connection signal="body_exited" from="." to="." method="_on_Items_body_exited"]
+
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+
+
