@@ -13,6 +13,10 @@ config_version=3
 config/name="GlobalJam19"
 config/icon="res://icon.png"
 
+[autoload]
+
+System="*res://Raea Adams/Scripts/System.gd"
+
 [input]
 
 up=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":87,"unicode":0,"echo":false,"script":null)
