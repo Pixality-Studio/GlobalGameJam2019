@@ -62,7 +62,7 @@ func get_input():
 	var left = Input.is_action_pressed("left")
 	
 	if Input.is_action_just_pressed("ui_cancel"):
-		get_node("HUD").is_playing = false
+		get_node("HUD").pause()
 	
 	if get_node("HUD").is_playing == true:
 		if up:

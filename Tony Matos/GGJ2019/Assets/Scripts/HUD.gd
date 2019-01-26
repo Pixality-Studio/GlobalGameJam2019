@@ -3,36 +3,53 @@ extends CanvasLayer
 ##### TODO #####
 #	1. Put is_playing false to a place where the players loses and retruns to this screen
 ###	2. Make StartButton start a new game and ResumeButton resume a game. (DONE)
+#	3. Code difficulty buttons
 
-
-
-
-var new_game = true
 var is_playing = false
 
-func _process(delta):
-	if is_playing:
-		get_node("StartScreen").hide()
-		get_node("PlayScreen").show()
-	elif is_playing == false:
-		get_node("PlayScreen").hide()
-		get_node("StartScreen").show()
-		if new_game == true:
-			get_node("StartScreen/NewGame").hide()
-			get_node("StartScreen/StartButton").show()
-			get_node("StartScreen/ResumeButton").hide()
-		elif new_game == false:
-			get_node("StartScreen/NewGame").show()
-			get_node("StartScreen/StartButton").hide()
-			get_node("StartScreen/ResumeButton").show()
+func _ready():
+	show_start("")
+	get_node("StartScreen/ResumeButton").hide()
+	get_node("StartScreen/NewGameButton").hide()
+	hide_difficulty()
+	hide_play()
+	is_playing = false
+
+func show_start(param):
+	get_node("StartScreen").show()
+	if param == "pause":
+		hide_play()
+		get_node("StartScreen/StartButton").hide()
+		get_node("StartScreen/NewGameButton").show()
+		get_node("StartScreen/ResumeButton").show()
+
+func hide_start():
+	get_node("StartScreen").hide()
+
+func show_difficulty():
+	get_node("DifficultySelectScreen").show()
+
+func hide_difficulty():
+	get_node("DifficultySelectScreen").hide()
+
+func show_play():
+	get_node("PlayScreen").show()
+
+func hide_play():
+	get_node("PlayScreen").hide()
 
 func _on_StartButton_pressed():
 	#Input start code
-	is_playing = true
-	new_game = false
+	hide_start()
+	show_difficulty()
+	hide_play()
+	#status.is_playing = true
 	
 func _on_Resume_Button_pressed():
 	#Input resume code
+	show_play()
+	hide_difficulty()
+	hide_start()
 	is_playing = true
 
 func _on_QuitButton_pressed():
@@ -40,4 +57,29 @@ func _on_QuitButton_pressed():
 
 func _on_NewGame_pressed():
 	#Input new game code
-	new_game = true
+	show_start("")
+	hide_difficulty()
+	hide_play()
+
+func _on_ZenModeButton_pressed():
+	#Input ZenMode Code
+	show_play()
+	hide_difficulty()
+	hide_start()
+	is_playing = true
+
+func _on_NormalModeButton_pressed():
+	#Input NormalMode Code
+	show_play()
+	hide_difficulty()
+	hide_start()
+	is_playing = true
+
+func _on_BackButton_pressed():
+	show_start("")
+	hide_difficulty()
+	hide_play()
+
+func pause():
+	is_playing = false
+	show_start("pause")
