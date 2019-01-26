@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/press_enter.png-869f324cb2ab777018fde85505db71ad.stex"
+path="res://.import/press_enter.png-14be4eaabae1c629546d8a2256a701a7.stex"
 
 [deps]
 
-source_file="res://press_enter.png"
-dest_files=[ "res://.import/press_enter.png-869f324cb2ab777018fde85505db71ad.stex" ]
+source_file="res://Christian Hardy/press_enter.png"
+dest_files=[ "res://.import/press_enter.png-14be4eaabae1c629546d8a2256a701a7.stex" ]
 
 [params]
 

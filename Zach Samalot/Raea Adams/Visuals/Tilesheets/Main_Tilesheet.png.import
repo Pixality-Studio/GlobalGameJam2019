@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Main_Tilesheet.png-33e4d5081eaa8cfe1d7af65ba62a457f.stex"
+path="res://.import/Main_Tilesheet.png-249134298a7edd9acefc5ae114c23dc2.stex"
 
 [deps]
 
-source_file="res://Raea Adams/Visuals/Tilesheets/Main_Tilesheet.png"
-dest_files=[ "res://.import/Main_Tilesheet.png-33e4d5081eaa8cfe1d7af65ba62a457f.stex" ]
+source_file="res://Zach Samalot/Raea Adams/Visuals/Tilesheets/Main_Tilesheet.png"
+dest_files=[ "res://.import/Main_Tilesheet.png-249134298a7edd9acefc5ae114c23dc2.stex" ]
 
 [params]
 
