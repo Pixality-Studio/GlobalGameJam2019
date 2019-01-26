@@ -1,0 +1,112 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Raea Adams/Scripts/Saturation.gd" type="Script" id=1]
+
+[node name="TestingGrounds" type="Node2D" index="0"]
+
+script = ExtResource( 1 )
+
+[node name="Object0" type="ColorRect" parent="." index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 398.0
+margin_top = 78.0
+margin_right = 438.0
+margin_bottom = 118.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 0.324219, 1, 0.334778, 1 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Object1" type="ColorRect" parent="." index="1"]
+
+modulate = Color( 0.214844, 0.214844, 0.214844, 1 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1494.0
+margin_top = -336.0
+margin_right = 1534.0
+margin_bottom = -296.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 0.556885, 0.53125, 1, 1 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Object2" type="ColorRect" parent="." index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2573.0
+margin_top = 804.0
+margin_right = 2613.0
+margin_bottom = 844.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 1, 0.210938, 0.210938, 1 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Object3" type="ColorRect" parent="." index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -962.0
+margin_top = -775.0
+margin_right = -922.0
+margin_bottom = -735.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 1, 1, 1, 1 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Camera2D" type="Camera2D" parent="." index="4"]
+
+position = Vector2( 764.074, 23.2949 )
+anchor_mode = 1
+rotating = false
+current = true
+zoom = Vector2( 4, 4 )
+limit_left = -10000000
+limit_top = -10000000
+limit_right = 10000000
+limit_bottom = 10000000
+limit_smoothed = false
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = false
+smoothing_speed = 5.0
+offset_v = 0.0
+offset_h = 0.0
+drag_margin_left = 0.2
+drag_margin_top = 0.2
+drag_margin_right = 0.2
+drag_margin_bottom = 0.2
+editor_draw_screen = true
+editor_draw_limits = false
+editor_draw_drag_margin = false
+
+
