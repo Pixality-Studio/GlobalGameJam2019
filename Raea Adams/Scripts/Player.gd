@@ -30,12 +30,12 @@ func _ready():
 	#This sets up the objects array
 	while while_count != -1:
 		#Appends the object as a dictionary into the Objects array
-		objects.append({"Name": "Object%s" % while_count, "Pos": get_node("/root/Main/Object%s" % while_count).rect_position})
+		objects.append({"Name": "Object%s" % while_count, "Pos": get_node("/root/PlaySpace/Object%s" % while_count).rect_position})
 		while_count -= 1 #Subtracts 1 from the while_count
 
 func _process(delta):
 	#Dark Mode 
-	get_node("ProgressBar/ProgressBar").value = new_game_plus.Sanity # update progress bar
+	get_node("SanityUI/SanityBar").value = new_game_plus.Sanity # update progress bar
 	
 	#Universal 
 	velocity = Vector2(0, 0)

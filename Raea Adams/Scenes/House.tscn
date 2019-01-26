@@ -7,7 +7,7 @@
 custom_solver_bias = 0.0
 radius = 173.673
 
-[node name="House" type="Sprite" index="0"]
+[node name="House" type="Sprite"]
 
 position = Vector2( 491.447, 294.447 )
 texture = ExtResource( 1 )
