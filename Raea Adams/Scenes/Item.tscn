@@ -62,7 +62,6 @@ audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 1 )
 _sections_unfolded = [ "Visibility" ]
-ItemImage = null
 object_num = null
 
 [node name="Sprite" type="Sprite" parent="." index="0"]

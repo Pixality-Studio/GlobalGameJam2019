@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/icon.png-8a125a5385b33b6f604994007e80277b.stex"
+path="res://.import/Mem3_Hover.png-a66f12b11ad6360300162274e1c5a39c.stex"
 
 [deps]
 
-source_file="res://Zach Samalot/Raea Adams/icon.png"
-dest_files=[ "res://.import/icon.png-8a125a5385b33b6f604994007e80277b.stex" ]
+source_file="res://Raea Adams/Visuals/UI/Memory3/Mem3_Hover.png"
+dest_files=[ "res://.import/Mem3_Hover.png-a66f12b11ad6360300162274e1c5a39c.stex" ]
 
 [params]
 
@@ -16,7 +16,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -25,5 +25,5 @@ process/premult_alpha=false
 process/HDR_as_SRGB=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0

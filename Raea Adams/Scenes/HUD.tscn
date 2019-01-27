@@ -1,7 +1,24 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Raea Adams/Scripts/HUD.gd" type="Script" id=1]
 [ext_resource path="res://Raea Adams/Visuals/Fonts/MainFont.TTF" type="DynamicFontData" id=2]
+[ext_resource path="res://Raea Adams/Visuals/UI/Memory_UI_DeSatur.png" type="Texture" id=3]
+[ext_resource path="res://Raea Adams/Visuals/UI/Memory1/Mem1_Normal.png" type="Texture" id=4]
+[ext_resource path="res://Raea Adams/Visuals/UI/Memory1/Mem1_Pressed.png" type="Texture" id=5]
+[ext_resource path="res://Raea Adams/Visuals/UI/Memory1/Mem1_Hover.png" type="Texture" id=6]
+[ext_resource path="res://Raea Adams/Visuals/UI/Memory1/Mem1_Disabled.png" type="Texture" id=7]
+[ext_resource path="res://Raea Adams/Visuals/UI/Memory2/Mem2_Normal.png" type="Texture" id=8]
+[ext_resource path="res://Raea Adams/Visuals/UI/Memory2/Mem2_Mem_Pressed.png" type="Texture" id=9]
+[ext_resource path="res://Raea Adams/Visuals/UI/Memory2/Mem2_Hover.png" type="Texture" id=10]
+[ext_resource path="res://Raea Adams/Visuals/UI/Memory2/Mem2_Disabled.png" type="Texture" id=11]
+[ext_resource path="res://Raea Adams/Visuals/UI/Memory3/Mem3_Normal.png" type="Texture" id=12]
+[ext_resource path="res://Raea Adams/Visuals/UI/Memory3/Mem3_Pressed.png" type="Texture" id=13]
+[ext_resource path="res://Raea Adams/Visuals/UI/Memory3/Mem3_Hover.png" type="Texture" id=14]
+[ext_resource path="res://Raea Adams/Visuals/UI/Memory3/Mem3_Disabled.png" type="Texture" id=15]
+[ext_resource path="res://Raea Adams/Visuals/UI/Memory4/Mem4_Normal.png" type="Texture" id=16]
+[ext_resource path="res://Raea Adams/Visuals/UI/Memory4/Mem4_Pressed.png" type="Texture" id=17]
+[ext_resource path="res://Raea Adams/Visuals/UI/Memory4/Mem4_Hover.png" type="Texture" id=18]
+[ext_resource path="res://Raea Adams/Visuals/UI/Memory4/Mem4_Disabled.png" type="Texture" id=19]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -30,6 +47,7 @@ script = ExtResource( 1 )
 
 [node name="TitleScreen" type="VBoxContainer" parent="." index="0"]
 
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -198,21 +216,132 @@ flat = true
 align = 1
 _sections_unfolded = [ "Rect", "custom_fonts" ]
 
-[node name="PlaySpace" type="VBoxContainer" parent="." index="2"]
+[node name="PlaySpace" type="Sprite" parent="." index="2"]
+
+position = Vector2( -33, 320 )
+scale = Vector2( 1.3, 1.3 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Heart" type="Sprite" parent="PlaySpace" index="0"]
+
+position = Vector2( 72.1595, 520.65 )
+texture = ExtResource( 3 )
+vframes = 4
+hframes = 4
+frame = 2
+_sections_unfolded = [ "Animation" ]
+
+[node name="Memory1" type="TextureButton" parent="PlaySpace" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 40.0
-margin_bottom = 40.0
+margin_left = 28.0
+margin_top = 486.0
+margin_right = 86.0
+margin_bottom = 548.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
-mouse_filter = 1
+focus_mode = 2
+mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-alignment = 0
+disabled = true
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 5 )
+texture_hover = ExtResource( 6 )
+texture_disabled = ExtResource( 7 )
+_sections_unfolded = [ "Textures" ]
+
+[node name="Memory2" type="TextureButton" parent="PlaySpace" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 52.0
+margin_top = 533.0
+margin_right = 110.0
+margin_bottom = 595.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+disabled = true
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 9 )
+texture_hover = ExtResource( 10 )
+texture_disabled = ExtResource( 11 )
+_sections_unfolded = [ "Textures" ]
+
+[node name="Memory3" type="TextureButton" parent="PlaySpace" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 71.0
+margin_top = 519.0
+margin_right = 116.0
+margin_bottom = 563.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+disabled = true
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 12 )
+texture_pressed = ExtResource( 13 )
+texture_hover = ExtResource( 14 )
+texture_disabled = ExtResource( 15 )
+_sections_unfolded = [ "Textures" ]
+
+[node name="Memory4" type="TextureButton" parent="PlaySpace" index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 82.0
+margin_top = 484.0
+margin_right = 127.0
+margin_bottom = 537.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+disabled = true
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 16 )
+texture_pressed = ExtResource( 17 )
+texture_hover = ExtResource( 18 )
+texture_disabled = ExtResource( 19 )
+_sections_unfolded = [ "Textures" ]
 
 [connection signal="pressed" from="TitleScreen/NewGame" to="." method="transition" binds= [ "difficulty" ]]
 

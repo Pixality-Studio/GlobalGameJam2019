@@ -26,7 +26,10 @@ func _ready():
 	var while_count = 3
 	
 	#Dark Mode
-	get_node("SanityTimer").wait_time = darkmode.DecreaseTime # sets the timer to correct time
+	if System.difficulty == 1:
+		$SanityUI/SanityBar.show()
+		$SanityTimer.wait_time = darkmode.DecreaseTime # sets the timer to correct time
+		$SanityTimer.start()
 	
 	#Universal Mode
 	#This sets up the objects array
@@ -37,7 +40,8 @@ func _ready():
 
 func _process(delta):
 	#Dark Mode 
-	get_node("SanityUI/SanityBar").value = darkmode.Sanity # update progress bar
+	if System.difficulty == 1:
+		$SanityUI/SanityBar.value = darkmode.Sanity # update progress bar
 	
 	#Universal 
 	if $CharAnim.current_animation != new_anim: #If the current animation is not the animation that should be playing then switch it out

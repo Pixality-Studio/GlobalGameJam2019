@@ -21,7 +21,7 @@ func _ready():
 		hide_play() #Hide the in-game HUD
 		is_playing = false #The game is not playing
 	else: #Otherwise
-		$TitleScreen/NewGame.hide() #Hide the new game button
+		hide_start()
 		hide_difficulty() #Hide the difficulty screen
 		show_play() #Show the in-game HUD 
 		is_playing = true #The game is playing!

@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Not_Rebecca_But_Itll_Do.png-becabbbd4faa40f6f92c8b509356541f.stex"
+path="res://.import/Not_Rebecca_But_Itll_Do.png-4d369e7ca4800698ed4ecce53b5653b8.stex"
 
 [deps]
 
-source_file="res://Raea Adams/Visuals/Player/Not_Rebecca_But_Itll_Do.png"
-dest_files=[ "res://.import/Not_Rebecca_But_Itll_Do.png-becabbbd4faa40f6f92c8b509356541f.stex" ]
+source_file="res://Zach Samalot/Raea Adams/Visuals/Player/Not_Rebecca_But_Itll_Do.png"
+dest_files=[ "res://.import/Not_Rebecca_But_Itll_Do.png-4d369e7ca4800698ed4ecce53b5653b8.stex" ]
 
 [params]
 

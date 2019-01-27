@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Memory_UI.png-cace55f93a8c1ffeb7ffca88badb91f4.stex"
+path="res://.import/Memory_UI.png-7b958b6998e1dc6796f6a44178adb751.stex"
 
 [deps]
 
-source_file="res://Raea Adams/Visuals/UI/Memory_UI.png"
-dest_files=[ "res://.import/Memory_UI.png-cace55f93a8c1ffeb7ffca88badb91f4.stex" ]
+source_file="res://Zach Samalot/Raea Adams/Visuals/UI/Memory_UI.png"
+dest_files=[ "res://.import/Memory_UI.png-7b958b6998e1dc6796f6a44178adb751.stex" ]
 
 [params]
 
