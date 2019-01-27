@@ -1,18 +1,15 @@
 extends KinematicBody2D
 
-# the only difference for this game mode is that the house needs to have a collision shape circle attached to it
-# so that the their can be detection when 
+export (PackedScene) var Ghost # change the file path in final project ###################
 
 var velocity = Vector2()
 var speed = 200
 
-# the house needs to have an area2d as a child of it with a big circle hitbox 
-
 var currently_losing_sanity = false # false = at home, true = away from home
 
 var sanity = 100 # amount of sanity
-var sanity_seconds = 10 # amount of time elapsed before decrementing sanity
-var sanity_loss = 10 # amount of sanity lost per trigger
+var sanity_seconds = 1 # amount of time elapsed before decrementing sanity
+var sanity_loss = 2 # amount of sanity lost per trigger
 
 func _ready():
 	get_node("SanityTimer").wait_time = sanity_seconds # sets the timer to correct time
@@ -33,11 +30,9 @@ func get_input():
 	if Input.is_action_pressed("ui_right"):
 		velocity.x += speed
 
-
 # SANITY RESET ON ITEM PICKUP
 # whenever the signal is received that an item has been picked up
 # call reset_sanity()
-
 
 func _on_SanityTimer_timeout():
 	sanity -= sanity_loss # decrease your sanity on timeout
@@ -53,4 +48,12 @@ func _on_Area2D_area_entered(area): # if this is copied in make sure to connect 
 func _on_Area2D_area_exited(area): # same as above
 	if area.is_in_group("house"):
 		get_node("SanityTimer").start()
+
+func _on_GhostSpawnerTimer_timeout():
+	spawn_ghost()
+
+func spawn_ghost():
+	var ghost = Ghost.instance()
+	get_parent().add_child(ghost)
+	ghost.start(sanity, Vector2(rand_range(position.x - 400, position.x + 400), rand_range(position.y - 400, position.y + 400)))
 
