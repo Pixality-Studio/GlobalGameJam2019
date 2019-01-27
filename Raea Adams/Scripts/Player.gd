@@ -21,6 +21,7 @@ var closest_obj #This holds the name of the closest object
 #SanityDecrease is the amount of sanity you will lose
 var darkmode = {"Sanity": 100, "DecreaseTime": 10, "SanityDecrease": 10}
 var currently_losing_sanity = false # false = at home, true = away from home
+var paused = false
 
 func _ready():
 	var while_count = 3
@@ -30,6 +31,8 @@ func _ready():
 		$SanityUI/SanityBar.show()
 		$SanityTimer.wait_time = darkmode.DecreaseTime # sets the timer to correct time
 		$SanityTimer.start()
+	if System.difficulty == 1 and !paused:
+		$SanityUI/SanityBar.value = darkmode.Sanity # update progress bar
 	
 	#Universal Mode
 	#This sets up the objects array
@@ -40,8 +43,10 @@ func _ready():
 
 func _process(delta):
 	#Dark Mode 
-	if System.difficulty == 1:
-		$SanityUI/SanityBar.value = darkmode.Sanity # update progress bar
+	if System.difficulty == 1 and paused: #If the game is paused, pause the timer
+		$SanityTimer.paused = true
+	if System.difficulty == 1 and !paused: #If the game is not paused then resume the timer
+		$SanityTimer.paused = false
 	
 	#Universal 
 	if $CharAnim.current_animation != new_anim: #If the current animation is not the animation that should be playing then switch it out

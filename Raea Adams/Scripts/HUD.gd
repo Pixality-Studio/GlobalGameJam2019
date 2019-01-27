@@ -75,3 +75,12 @@ func show_play():
 #Hides in-game HUD
 func hide_play():
 	$PlaySpace.hide()
+
+func play_memory(memory):
+	get_node("/root/PlaySpace/Player").paused = true
+	$MemoryAnim.play("Memory%s" % memory)
+
+func memory_finished(anim_name):
+	get_node("/root/PlaySpace/Player").paused = false
+	$Memories.hide()
+	$MemoryAnim.stop()

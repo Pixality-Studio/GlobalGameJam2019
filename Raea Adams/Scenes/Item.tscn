@@ -90,10 +90,6 @@ anims/Idle = SubResource( 2 )
 blend_times = [  ]
 _sections_unfolded = [ "Playback Options" ]
 
-[connection signal="area_entered" from="." to="." method="_on_Items_area_entered"]
-
-[connection signal="area_exited" from="." to="." method="_on_Items_area_exited"]
-
 [connection signal="body_entered" from="." to="." method="_on_Items_body_entered"]
 
 [connection signal="body_exited" from="." to="." method="_on_Items_body_exited"]

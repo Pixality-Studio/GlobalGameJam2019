@@ -4,6 +4,8 @@ extends Area2D
 #	1/25/2018
 #	working on 
 
+signal PickUP
+
 export (int) var object_num #The number of the object
 
 var can_pickup = false #Can it be picked up or not
@@ -15,18 +17,23 @@ func _process(delta):
 
 #Handles picking up items
 func PickUp():
+	get_node("/root/PlaySpace/Player").paused = true
 	if object_num == 3: #Checks for item number
 		get_node("/root/PlaySpace/HUD").memories.Memory1 = true #Sets corresponding memory to true
 		get_node("/root/PlaySpace/HUD/PlaySpace/Memory1").disabled = false
+		get_node("/root/PlaySpace/HUD/Memories/MemoryAnim").play("Memory1") #Plays memory
 	if object_num == 2:
 		get_node("/root/PlaySpace/HUD").memories.Memory2 = true
 		get_node("/root/PlaySpace/HUD/PlaySpace/Memory2").disabled = false
+		get_node("/root/PlaySpace/HUD/Memories/MemoryAnim").play("Memory2") #Plays memory
 	if object_num == 1:
 		get_node("/root/PlaySpace/HUD").memories.Memory3 = true
 		get_node("/root/PlaySpace/HUD/PlaySpace/Memory3").disabled = false
+		get_node("/root/PlaySpace/HUD/Memories/MemoryAnim").play("Memory3") #Plays memory
 	if object_num == 0:
 		get_node("/root/PlaySpace/HUD").memories.Memory4 = true
 		get_node("/root/PlaySpace/HUD/PlaySpace/Memory4").disabled = false
+		get_node("/root/PlaySpace/HUD/Memories/MemoryAnim").play("Memory4") #Plays memory
 	get_node("/root/PlaySpace/Player").scaledown() #Scales saturation from colored to grey
 	get_node("/root/PlaySpace/Player").objects.remove(object_num) #Removes the object info from the objects array
 	emit_signal("PickUp") #Emit Pickup signal
