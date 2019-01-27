@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Distant_Memory.ogg-bb567a68cfc1c1d430945c127f67f7a2.oggstr"
+
+[deps]
+
+source_file="res://Raea Adams/Audio/Music/Distant_Memory.ogg"
+dest_files=[ "res://.import/Distant_Memory.ogg-bb567a68cfc1c1d430945c127f67f7a2.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

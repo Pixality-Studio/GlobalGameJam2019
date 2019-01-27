@@ -21,7 +21,7 @@ var closest_obj #This holds the name of the closest object
 #SanityDecrease is the amount of sanity you will lose
 var darkmode = {"Sanity": 100, "DecreaseTime": 10, "SanityDecrease": 10}
 var currently_losing_sanity = false # false = at home, true = away from home
-var paused = true
+var paused = false
 
 func _ready():
 	var while_count = 3
@@ -46,7 +46,7 @@ func _process(delta):
 	if System.difficulty == 1 and paused: #If the game is paused, pause the timer
 		$SanityTimer.paused = true
 	if System.difficulty == 1 and !paused: #If the game is not paused then resume the timer
-		$SanityTimer.paused = false
+		$SanityTimer.paused = true
 	
 	#Universal 
 	if !paused:
@@ -72,16 +72,16 @@ func get_input():
 	#Basic Movement
 	if up:
 		velocity.y -= speed
-		#new_anim = "Up"
+		new_anim = "Up"
 	if down:
 		velocity.y += speed
 		new_anim = "Down"
 	if left:
 		velocity.x -= speed
-		#new_anim = "Left"
+		new_anim = "Left"
 	if right:
 		velocity.x += speed
-		#new_anim = "Right"
+		new_anim = "Right"
 	
 
 #I did math!
@@ -105,38 +105,8 @@ func saturation_update():
 		for_count += 1 #Adds for count by 1
 		
 	#This handles range of when the different saturation levels occur
-	if closest_pos > 3000: #Main Change
-		$CharCam/Saturation.environment.adjustment_saturation = 0.01
-	if closest_pos == 3000: #Main Change
-		$CharCam/Saturation.environment.adjustment_saturation = 0.03
-	if closest_pos < 3000 and closest_pos >= 2700:
-		$CharCam/Saturation.environment.adjustment_saturation = 0.05
-	if closest_pos < 2700 and closest_pos >= 2600:
-		$CharCam/Saturation.environment.adjustment_saturation = 0.07
-	if closest_pos < 3000 and closest_pos >= 2500: #Main Change
-		$CharCam/Saturation.environment.adjustment_saturation = 0.2
-	if closest_pos < 2500 and closest_pos >= 2300:
-		$CharCam/Saturation.environment.adjustment_saturation = 0.22
-	if closest_pos < 2300 and closest_pos >= 2100:
-		$CharCam/Saturation.environment.adjustment_saturation = 0.25
-	if closest_pos < 2500 and closest_pos >= 2000: #Main Change
-		$CharCam/Saturation.environment.adjustment_saturation = 0.3
-	if closest_pos < 2000 and closest_pos >= 1800:
-		$CharCam/Saturation.environment.adjustment_saturation = 0.32
-	if closest_pos < 1800 and closest_pos >= 1700:
-		$CharCam/Saturation.environment.adjustment_saturation = 0.35
-	if closest_pos < 1700 and closest_pos >= 2500:
-		$CharCam/Saturation.environment.adjustment_saturation = 0.2
-	if closest_pos < 2000 and closest_pos >= 1500: #Main Change
-		$CharCam/Saturation.environment.adjustment_saturation = 0.4
-	if closest_pos < 1500 and closest_pos >= 1000: #Main Change
-		$CharCam/Saturation.environment.adjustment_saturation = 0.5
-	if closest_pos < 1000 and closest_pos >= 500: #Main Change
-		$CharCam/Saturation.environment.adjustment_saturation = 0.6
-	if closest_pos < 500 and closest_pos > 350: #Main Change
-		$CharCam/Saturation.environment.adjustment_saturation = 0.7
-	if closest_pos < 200: #Main Change
-		$CharCam/Saturation.environment.adjustment_saturation = 1.0
+	
+	$CharCam/Saturation.environment.adjustment_saturation = clamp((-closest_pos / 3000) + 1, 0.01, 1)
 
 #This smoothly brings the saturation to bleak (Used for pickup effect)
 func scaledown():

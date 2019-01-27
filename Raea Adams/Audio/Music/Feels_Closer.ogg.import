@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Feels_Closer.ogg-ea0424c753277e179a06c511024b5fd5.oggstr"
+
+[deps]
+
+source_file="res://Raea Adams/Audio/Music/Feels_Closer.ogg"
+dest_files=[ "res://.import/Feels_Closer.ogg-ea0424c753277e179a06c511024b5fd5.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -14,10 +14,26 @@ var is_playing = false #Is the game playing now
 
 #This holds what memories have been collected and which ones have not.
 var memories = {"Memory1": false, "Memory2": false, "Memory3": false, "Memory4": false}
+var memory_toggled = false
+var mem_count = 0
 
 func _process(delta):
 	if memories.Memory1 and memories.Memory2 and memories.Memory3 and memories.Memory4:
 		get_tree().change_scene("res://Raea Adams/Scenes/EndGame.tscn")
+	if memory_toggled and Input.is_action_just_pressed("interact"):
+		memory_toggled = false
+		get_node("/root/PlaySpace/Player").paused = false
+		$MemoryTemplate.hide()
+		$Memory1.hide()
+		$Memory2.hide()
+		$Memory3.hide()
+		$Memory4.hide()
+		$PlaySpace/Memory1.pressed = false
+		$PlaySpace/Memory2.pressed = false
+		$PlaySpace/Memory3.pressed = false
+		$PlaySpace/Memory4.pressed = false
+		yield(get_tree().create_timer(0.3), "timeout")
+	
 
 #When ready...
 func _ready():
@@ -80,11 +96,27 @@ func show_play():
 func hide_play():
 	$PlaySpace.hide()
 
-func play_memory(memory):
-	get_node("/root/PlaySpace/Player").paused = true
-	$MemoryAnim.play("Memory%s" % memory)
+func play_music():
+	if mem_count == 1:
+		get_node("/root/PlaySpace/Player/MemMusic").stream = load("res://Raea Adams/Audio/Music/A_Little_Bit_of_Color.ogg")
+		get_node("/root/PlaySpace/Player/MemMusic").play()
+	if mem_count == 2:
+		get_node("/root/PlaySpace/Player/MemMusic").stream = load("res://Raea Adams/Audio/Music/Feels_Closer.ogg")
+		get_node("/root/PlaySpace/Player/MemMusic").play()
+	if mem_count == 3:
+		get_node("/root/PlaySpace/Player/MemMusic").stream = load("res://Raea Adams/Audio/Music/Somewhere_Like_Home.ogg")
+		get_node("/root/PlaySpace/Player/MemMusic").play()
 
-func memory_finished(anim_name):
-	get_node("/root/PlaySpace/Player").paused = false
-	$Memories.hide()
-	$MemoryAnim.stop()
+func memory_toggle(button_pressed, memory):
+	if button_pressed:
+		get_node("/root/PlaySpace/Player").paused = true
+		memory_toggled = true
+		$MemoryTemplate.show()
+	if memory == 1:
+		$Memory1.show()
+	if memory == 2:
+		$Memory2.show()
+	if memory == 3:
+		$Memory3.show()
+	if memory == 4:
+		$Memory4.show()

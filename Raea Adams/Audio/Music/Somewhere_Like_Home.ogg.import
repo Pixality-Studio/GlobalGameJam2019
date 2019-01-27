@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Somewhere_Like_Home.ogg-fc6230404c62ffaa4b9a91006dd25527.oggstr"
+
+[deps]
+
+source_file="res://Raea Adams/Audio/Music/Somewhere_Like_Home.ogg"
+dest_files=[ "res://.import/Somewhere_Like_Home.ogg-fc6230404c62ffaa4b9a91006dd25527.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

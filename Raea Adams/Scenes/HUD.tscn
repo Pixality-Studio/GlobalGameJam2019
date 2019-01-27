@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://Raea Adams/Scripts/HUD.gd" type="Script" id=1]
 [ext_resource path="res://Raea Adams/Visuals/Fonts/MainFont.TTF" type="DynamicFontData" id=2]
@@ -19,6 +19,11 @@
 [ext_resource path="res://Raea Adams/Visuals/UI/Memory4/Mem4_Pressed.png" type="Texture" id=17]
 [ext_resource path="res://Raea Adams/Visuals/UI/Memory4/Mem4_Hover.png" type="Texture" id=18]
 [ext_resource path="res://Raea Adams/Visuals/UI/Memory4/Mem4_Disabled.png" type="Texture" id=19]
+[ext_resource path="res://Raea Adams/Visuals/Memories/photobase.png" type="Texture" id=20]
+[ext_resource path="res://Raea Adams/Visuals/Memories/photo1.png" type="Texture" id=21]
+[ext_resource path="res://Raea Adams/Visuals/Memories/photo2.png" type="Texture" id=22]
+[ext_resource path="res://Raea Adams/Visuals/Memories/photo3.png" type="Texture" id=23]
+[ext_resource path="res://Raea Adams/Visuals/Memories/photo4.png" type="Texture" id=24]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -44,12 +49,44 @@ use_filter = false
 font_data = ExtResource( 2 )
 _sections_unfolded = [ "Font", "Settings" ]
 
+[sub_resource type="DynamicFont" id=8]
+
+size = 50
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 2 )
+_sections_unfolded = [ "Font", "Settings" ]
+
 [sub_resource type="Animation" id=4]
 
 resource_name = "Memory1"
-length = 1.0
-loop = false
+length = 0.2
+loop = true
 step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("MemoryTemplate:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Memory1:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
 [sub_resource type="Animation" id=5]
 
@@ -83,6 +120,7 @@ script = ExtResource( 1 )
 
 [node name="TitleScreen" type="VBoxContainer" parent="." index="0"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -155,6 +193,7 @@ _sections_unfolded = [ "Rect", "custom_fonts" ]
 
 [node name="DifficultyScreen" type="VBoxContainer" parent="." index="1"]
 
+editor/display_folded = true
 visible = false
 anchor_left = 0.0
 anchor_top = 0.0
@@ -259,7 +298,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 disabled = true
-toggle_mode = false
+toggle_mode = true
 enabled_focus_mode = 2
 shortcut = null
 group = null
@@ -287,7 +326,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 disabled = true
-toggle_mode = false
+toggle_mode = true
 enabled_focus_mode = 2
 shortcut = null
 group = null
@@ -315,7 +354,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 disabled = true
-toggle_mode = false
+toggle_mode = true
 enabled_focus_mode = 2
 shortcut = null
 group = null
@@ -343,7 +382,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 disabled = true
-toggle_mode = false
+toggle_mode = true
 enabled_focus_mode = 2
 shortcut = null
 group = null
@@ -355,6 +394,7 @@ _sections_unfolded = [ "Textures" ]
 
 [node name="Memories" type="Sprite" parent="." index="3"]
 
+editor/display_folded = true
 visible = false
 
 [node name="PolaroidTemplate" type="Sprite" parent="Memories" index="0"]
@@ -383,9 +423,162 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_colors", "custom_fonts" ]
 
-[node name="Memory1" type="Sprite" parent="." index="4"]
+[node name="MemoryTemplate" type="Sprite" parent="." index="4"]
 
-[node name="MemoryAnim" type="AnimationPlayer" parent="." index="5"]
+visible = false
+position = Vector2( 966.213, 530.007 )
+scale = Vector2( 8.42898, 8 )
+texture = ExtResource( 20 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Memory1" type="Sprite" parent="." index="5"]
+
+visible = false
+position = Vector2( 965.288, 530.007 )
+scale = Vector2( 8.26995, 8 )
+texture = ExtResource( 21 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Label" type="Label" parent="Memory1" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -176.0
+margin_top = -15.0
+margin_right = 269.0
+margin_bottom = 159.0
+rect_rotation = -19.714
+rect_scale = Vector2( 0.11, 0.11 )
+rect_pivot_offset = Vector2( 167.882, 28.2732 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "While my mind is dark
+The embers within
+Will reignite my hear"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect" ]
+
+[node name="Memory2" type="Sprite" parent="." index="6"]
+
+editor/display_folded = true
+visible = false
+position = Vector2( 965.288, 530.007 )
+scale = Vector2( 8.26995, 8 )
+texture = ExtResource( 22 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Label" type="Label" parent="Memory2" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -180.0
+margin_top = -15.0
+margin_right = 597.0
+margin_bottom = 159.0
+rect_rotation = -19.714
+rect_scale = Vector2( 0.11, 0.11 )
+rect_pivot_offset = Vector2( 167.882, 28.2732 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Though it's faded
+The memories of home
+Gives my mind foundation"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect" ]
+
+[node name="Memory3" type="Sprite" parent="." index="7"]
+
+editor/display_folded = true
+visible = false
+position = Vector2( 965.288, 530.007 )
+scale = Vector2( 8.26995, 8 )
+texture = ExtResource( 23 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Label" type="Label" parent="Memory3" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -182.0
+margin_top = -14.0
+margin_right = 365.0
+margin_bottom = 160.0
+rect_rotation = -19.714
+rect_scale = Vector2( 0.11, 0.11 )
+rect_pivot_offset = Vector2( 167.882, 28.2732 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Though my mind is chaotic
+This peaceful forest
+Has calmed my thoughts"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect" ]
+
+[node name="Memory4" type="Sprite" parent="." index="8"]
+
+visible = false
+position = Vector2( 965.288, 530.007 )
+scale = Vector2( 8.26995, 8 )
+texture = ExtResource( 24 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Label" type="Label" parent="Memory4" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -179.0
+margin_top = -15.0
+margin_right = 435.0
+margin_bottom = 218.0
+rect_rotation = -19.714
+rect_scale = Vector2( 0.11, 0.11 )
+rect_pivot_offset = Vector2( 167.882, 28.2732 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "My heart is cold as ice
+In this winter wonderland
+I find glinting hope
+"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect" ]
+
+[node name="MemoryAnim" type="AnimationPlayer" parent="." index="9"]
 
 root_node = NodePath("..")
 autoplay = ""
@@ -406,13 +599,13 @@ blend_times = [  ]
 
 [connection signal="pressed" from="DifficultyScreen/TimedMode" to="." method="start_game" binds= [ 1 ]]
 
-[connection signal="pressed" from="PlaySpace/Memory1" to="." method="play_memory" binds= [ 1 ]]
+[connection signal="toggled" from="PlaySpace/Memory1" to="." method="memory_toggle" binds= [ 1 ]]
 
-[connection signal="pressed" from="PlaySpace/Memory2" to="." method="play_memory" binds= [ 2 ]]
+[connection signal="toggled" from="PlaySpace/Memory2" to="." method="memory_toggle" binds= [ 2 ]]
 
-[connection signal="pressed" from="PlaySpace/Memory3" to="." method="play_memory" binds= [ 3 ]]
+[connection signal="toggled" from="PlaySpace/Memory3" to="." method="memory_toggle" binds= [ 3 ]]
 
-[connection signal="pressed" from="PlaySpace/Memory4" to="." method="play_memory" binds= [ 4 ]]
+[connection signal="toggled" from="PlaySpace/Memory4" to="." method="memory_toggle" binds= [ 4 ]]
 
 [connection signal="animation_finished" from="MemoryAnim" to="." method="memory_finished"]
 
