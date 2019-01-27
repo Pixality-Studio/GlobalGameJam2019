@@ -84,7 +84,7 @@ glow_bicubic_upscale = false
 adjustment_enabled = true
 adjustment_brightness = 1.0
 adjustment_contrast = 1.0
-adjustment_saturation = 0.01
+adjustment_saturation = 0.7
 _sections_unfolded = [ "Adjustments", "Background" ]
 
 [node name="Player" type="KinematicBody2D" groups=[

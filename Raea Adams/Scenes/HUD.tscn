@@ -19,7 +19,7 @@ use_filter = false
 font_data = ExtResource( 2 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="HUD" type="CanvasLayer" index="0"]
+[node name="HUD" type="CanvasLayer"]
 
 layer = 1
 offset = Vector2( 0, 0 )
@@ -34,10 +34,11 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 423.0
-margin_top = 359.0
-margin_right = 647.0
-margin_bottom = 487.0
+margin_left = 760.0
+margin_top = 677.0
+margin_right = 984.0
+margin_bottom = 826.0
+rect_scale = Vector2( 2, 2 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -46,7 +47,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_constants/separation = 25
 alignment = 0
-_sections_unfolded = [ "custom_constants" ]
+_sections_unfolded = [ "Rect" ]
 
 [node name="NewGame" type="Button" parent="TitleScreen" index="0"]
 
@@ -106,10 +107,11 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 427.0
-margin_top = 320.0
-margin_right = 637.0
-margin_bottom = 593.0
+margin_left = 742.0
+margin_top = 599.0
+margin_right = 997.0
+margin_bottom = 872.0
+rect_scale = Vector2( 2, 2 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -117,6 +119,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 alignment = 0
+_sections_unfolded = [ "Rect" ]
 
 [node name="ZenMode" type="Button" parent="DifficultyScreen" index="0"]
 
