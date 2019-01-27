@@ -1,31 +1,32 @@
 extends KinematicBody2D
 
-#Dark mode comments what is going to be used only in the harder difficulty
-
 # the only difference for this game mode is that the house needs to have a collision shape circle attached to it
 # so that the their can be detection when 
-var objects = []
-var closest_pos = 0.0
-var closest_obj
-
-var velocity = Vector2()
-var speed = 200
-var saturate = true
-
 # the house needs to have an area2d as a child of it with a big circle hitbox 
+#Dark mode comments what is going to be used only in the harder difficulty
 
-var currently_losing_sanity = false # false = at home, true = away from home
+var new_anim = "" #This holds what the current animation that should be playing is
+
+var velocity = Vector2() #This is holds how much the character will move by
+var speed = 200 #This holds movement speed
+
+var saturate = true #This tells whether saturation can occur or not. Allows cinematic saturation over automatic
+
+var objects = [] #This holds the position and name of each object
+var closest_pos = 0.0 #This holds the closest object's distance
+var closest_obj #This holds the name of the closest object
 
 #Sanity is the amount of sanity you have
 #SanityDecreaseTime is the amount of wait_time the decrease timer will have
 #SanityDecrease is the amount of sanity you will lose
-var new_game_plus = {"Sanity": 100, "DecreaseTime": 10, "SanityDecrease": 10}
+var darkmode = {"Sanity": 100, "DecreaseTime": 10, "SanityDecrease": 10}
+var currently_losing_sanity = false # false = at home, true = away from home
 
 func _ready():
 	var while_count = 3
 	
 	#Dark Mode
-	get_node("SanityTimer").wait_time = new_game_plus.DecreaseTime # sets the timer to correct time
+	get_node("SanityTimer").wait_time = darkmode.DecreaseTime # sets the timer to correct time
 	
 	#Universal Mode
 	#This sets up the objects array
@@ -36,13 +37,19 @@ func _ready():
 
 func _process(delta):
 	#Dark Mode 
-	get_node("SanityUI/SanityBar").value = new_game_plus.Sanity # update progress bar
+	get_node("SanityUI/SanityBar").value = darkmode.Sanity # update progress bar
 	
 	#Universal 
-	velocity = Vector2(0, 0)
-	get_input()
-	move_and_slide(velocity) * speed
-	if saturate:
+	if $CharAnim.current_animation != new_anim: #If the current animation is not the animation that should be playing then switch it out
+		$CharAnim.play(new_anim)
+	if velocity == Vector2(0,0): #If velocity == 0 then Idle
+		$CharAnim.stop()
+	velocity = Vector2(0, 0) #Velocity is set to 0 so the player does not slide
+	
+	get_input() #Checks for inputs
+	move_and_slide(velocity)
+	
+	if saturate: #If saturation is allowed then update the saturation level
 		saturation_update() #Updates the saturation level
 
 func get_input():
@@ -52,19 +59,20 @@ func get_input():
 	var right = Input.is_action_pressed("right")
 	var left = Input.is_action_pressed("left")
 	
+	#Basic Movement
 	if up:
 		velocity.y -= speed
+		#new_anim = "Up"
 	if down:
 		velocity.y += speed
+		new_anim = "Down"
 	if left:
 		velocity.x -= speed
+		#new_anim = "Left"
 	if right:
 		velocity.x += speed
+		#new_anim = "Right"
 	
-
-# SANITY RESET ON ITEM PICKUP
-# whenever the signal is received that an item has been picked up
-# call reset_sanity()
 
 #I did math!
 func saturation_update():
@@ -120,10 +128,12 @@ func saturation_update():
 	if closest_pos < 200: #Main Change
 		$CharCam/Saturation.environment.adjustment_saturation = 1.0
 
+#This smoothly brings the saturation to bleak (Used for pickup effect)
 func scaledown():
-	saturate = false
-	$CharCam/Saturation.environment.adjustment_saturation = 1.0
-	yield(get_tree().create_timer(0.2), "timeout")
+	saturate = false #Sets saturation to false so auto saturation cannot occur
+	$CharCam/Saturation.environment.adjustment_saturation = 1.0 #New saturation level
+	yield(get_tree().create_timer(0.2), "timeout") #Timer to wait for next saturation level change
+	#REPEAT
 	$CharCam/Saturation.environment.adjustment_saturation = 0.7
 	yield(get_tree().create_timer(0.2), "timeout")
 	$CharCam/Saturation.environment.adjustment_saturation = 0.5
@@ -155,23 +165,29 @@ func scaledown():
 	$CharCam/Saturation.environment.adjustment_saturation = 0.01
 	saturate = true
 
-#Couldn't find the proper property path
+#Couldn't find the proper property path to tween it.
 #func tween_it(new_sat):
 #	$Tween.interpolate_property($CharCam/Saturation, "CharCam/Saturation:Environment:Adjustments:Saturation", $CharCam/Saturation.environment.adjustment_saturation, new_sat, 0.3,Tween.TRANS_SINE,Tween.EASE_IN_OUT)
 #	$Tween.start()
 
-func _on_SanityTimer_timeout():
-	new_game_plus.Sanity -= new_game_plus.SanityDecrease # decrease your sanity on timeout
 
+# SANITY RESET ON ITEM PICKUP
+# whenever the signal is received that an item has been picked up
+# call reset_sanity()
 func reset_sanity():
-	new_game_plus.Sanity = 100
+	darkmode.Sanity = 100
+
+#Handles what happens when the sanity timer runs out.
+func _on_SanityTimer_timeout():
+	darkmode.Sanity -= darkmode.SanityDecrease # decrease your sanity on timeout
 
 func _on_Area2D_area_entered(area): # if this is copied in make sure to connect this area2d (from the player)
 	if area.is_in_group("house"): # if you enter the house
-		reset_sanity()
-		get_node("SanityTimer").stop() 
+		if System.difficulty == 1:
+			reset_sanity()
+			get_node("SanityTimer").stop() 
 
 func _on_Area2D_area_exited(area): # same as above
 	if area.is_in_group("house"):
-		get_node("SanityTimer").start()
-
+		if System.difficulty == 1:
+			get_node("SanityTimer").start()

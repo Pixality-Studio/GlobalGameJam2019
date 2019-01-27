@@ -1,12 +1,12 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Raea Adams/Scripts/Player.gd" type="Script" id=1]
-[ext_resource path="res://Raea Adams/icon.png" type="Texture" id=2]
+[ext_resource path="res://Raea Adams/Visuals/Player/Not_Rebecca_But_Itll_Do.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 35.1354, 37.8474 )
+extents = Vector2( 19.1253, 37.8474 )
 
 [sub_resource type="Environment" id=2]
 
@@ -87,6 +87,25 @@ adjustment_contrast = 1.0
 adjustment_saturation = 0.7
 _sections_unfolded = [ "Adjustments", "Background" ]
 
+[sub_resource type="Animation" id=3]
+
+resource_name = "Down"
+length = 0.7
+loop = true
+step = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+
 [node name="Player" type="KinematicBody2D" groups=[
 "player",
 ]]
@@ -100,7 +119,11 @@ _sections_unfolded = [ "Collision" ]
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
+position = Vector2( -0.0236835, -0.0892258 )
+scale = Vector2( 1.44739, 1.44739 )
 texture = ExtResource( 2 )
+hframes = 4
+_sections_unfolded = [ "Animation" ]
 
 [node name="HitboxArea" type="Area2D" parent="." index="1"]
 
@@ -199,6 +222,16 @@ playback_speed = 1.0
 playback/active = false
 playback/repeat = false
 playback/speed = 1.0
+
+[node name="CharAnim" type="AnimationPlayer" parent="." index="7"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/Down = SubResource( 3 )
+blend_times = [  ]
 
 [connection signal="area_entered" from="HitboxArea" to="." method="_on_Area2D_area_entered"]
 
