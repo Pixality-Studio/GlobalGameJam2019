@@ -15,6 +15,10 @@ var is_playing = false #Is the game playing now
 #This holds what memories have been collected and which ones have not.
 var memories = {"Memory1": false, "Memory2": false, "Memory3": false, "Memory4": false}
 
+func _process(delta):
+	if memories.Memory1 and memories.Memory2 and memories.Memory3 and memories.Memory4:
+		get_tree().change_scene("res://Raea Adams/Scenes/EndGame.tscn")
+
 #When ready...
 func _ready():
 	if get_parent().name == "Title": #If the parent is the Title screen 

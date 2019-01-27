@@ -21,7 +21,7 @@ var closest_obj #This holds the name of the closest object
 #SanityDecrease is the amount of sanity you will lose
 var darkmode = {"Sanity": 100, "DecreaseTime": 10, "SanityDecrease": 10}
 var currently_losing_sanity = false # false = at home, true = away from home
-var paused = false
+var paused = true
 
 func _ready():
 	var while_count = 3
@@ -49,14 +49,15 @@ func _process(delta):
 		$SanityTimer.paused = false
 	
 	#Universal 
-	if $CharAnim.current_animation != new_anim: #If the current animation is not the animation that should be playing then switch it out
-		$CharAnim.play(new_anim)
-	if velocity == Vector2(0,0): #If velocity == 0 then Idle
-		$CharAnim.stop()
-	velocity = Vector2(0, 0) #Velocity is set to 0 so the player does not slide
-	
-	get_input() #Checks for inputs
-	move_and_slide(velocity)
+	if !paused:
+		if $CharAnim.current_animation != new_anim: #If the current animation is not the animation that should be playing then switch it out
+			$CharAnim.play(new_anim)
+		if velocity == Vector2(0,0): #If velocity == 0 then Idle
+			$CharAnim.stop()
+		velocity = Vector2(0, 0) #Velocity is set to 0 so the player does not slide
+		
+		get_input() #Checks for inputs
+		move_and_slide(velocity)
 	
 	if saturate: #If saturation is allowed then update the saturation level
 		saturation_update() #Updates the saturation level

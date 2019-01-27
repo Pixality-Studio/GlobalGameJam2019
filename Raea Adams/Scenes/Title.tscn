@@ -1,14 +1,16 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Raea Adams/Scenes/HUD.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Raea Adams/Visuals/Fonts/MainFont.TTF" type="DynamicFontData" id=2]
+[ext_resource path="res://Raea Adams/Visuals/UI/Polaroid.png" type="Texture" id=2]
+[ext_resource path="res://Raea Adams/Visuals/Player/Not_Rebecca_But_Itll_Do.png" type="Texture" id=3]
+[ext_resource path="res://Raea Adams/Visuals/Fonts/MainFont.TTF" type="DynamicFontData" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 
 size = 100
 use_mipmaps = false
 use_filter = true
-font_data = ExtResource( 2 )
+font_data = ExtResource( 4 )
 _sections_unfolded = [ "Font", "Settings" ]
 
 [sub_resource type="Animation" id=2]
@@ -24,13 +26,128 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
 "update": 0,
-"values": [ Vector2( 648, 104 ), Vector2( 648, 164 ), Vector2( 648, 100 ), Vector2( 648, 32 ), Vector2( 648, 104 ) ]
+"values": [  ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite2:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 1,
+"values": [  ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = false
+tracks/2/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite2:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = false
+tracks/3/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Title:rect_rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 3.25691, 0.0, -3.27734 ]
 }
 
-[node name="Title" type="Node"]
+[sub_resource type="Animation" id=3]
+
+resource_name = "Idle"
+length = 0.8
+loop = true
+step = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Title:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite2:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1013.67, 535.565 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite2:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Title:rect_rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = false
+tracks/4/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+
+[node name="Title" type="Node" index="0"]
 
 [node name="HUD" parent="." index="0" instance=ExtResource( 1 )]
 
@@ -51,37 +168,64 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 color = Color( 0, 0, 0, 1 )
 
-[node name="Title" type="Label" parent="." index="2"]
+[node name="Sprite" type="Sprite" parent="." index="2"]
+
+position = Vector2( 1044.95, 413.131 )
+scale = Vector2( 1.73112, 0.803858 )
+texture = ExtResource( 2 )
+
+[node name="Sprite2" type="Sprite" parent="." index="3"]
+
+position = Vector2( 1013.67, 535.565 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 3 )
+hframes = 4
+frame = 3
+_sections_unfolded = [ "Animation", "Transform" ]
+
+[node name="Title" type="Label" parent="." index="4"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 648.0
-margin_top = 45.2107
-margin_right = 1420.0
-margin_bottom = 378.211
-rect_pivot_offset = Vector2( 0, 0 )
+margin_left = 624.0
+margin_top = 630.0
+margin_right = 1572.0
+margin_bottom = 963.0
+rect_pivot_offset = Vector2( 423.668, 63.665 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = SubResource( 1 )
-text = "Chain of Memories"
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Fragmented Memories"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Rect" ]
+_sections_unfolded = [ "Rect", "custom_colors" ]
 
-[node name="TitleAnim" type="AnimationPlayer" parent="." index="3"]
+[node name="TitleAnim" type="AnimationPlayer" parent="." index="5"]
 
 root_node = NodePath("..")
 autoplay = "Idle"
 playback_process_mode = 1
 playback_default_blend_time = 0.0
-playback_speed = 0.02
+playback_speed = 0.1
 anims/Idle = SubResource( 2 )
+blend_times = [  ]
+_sections_unfolded = [ "Playback Options" ]
+
+[node name="ImageAnim" type="AnimationPlayer" parent="." index="6"]
+
+root_node = NodePath("..")
+autoplay = "Idle"
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/Idle = SubResource( 3 )
 blend_times = [  ]
 _sections_unfolded = [ "Playback Options" ]
 
