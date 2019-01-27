@@ -10,60 +10,81 @@ extends CanvasLayer
 #	6. Input zen mode code
 #	7. Input normal mode code
 
-var is_playing = false
+var is_playing = false #Is the game playing now
+
+#This holds what memories have been collected and which ones have not.
+var memories = {"Memory1": false, "Memory2": false, "Memory3": false, "Memory4": false}
+
+func _process(delta):
+	if memories.Memory1 and memories.Memory2 and memories.Memory3 and memories.Memory4:
+		get_tree().change_scene("res://Raea Adams/Scenes/EndGame.tscn")
 
 #When ready...
 func _ready():
-	if get_node("/root/Title") == get_parent():
-		hide_play()
-		is_playing = false
-	else:
-		$TitleScreen/NewGame.hide() #Hide newgame button
-		hide_difficulty()
-		show_play()
-		is_playing = true
+	if get_parent().name == "Title": #If the parent is the Title screen 
+		hide_play() #Hide the in-game HUD
+		is_playing = false #The game is not playing
+	else: #Otherwise
+		hide_start()
+		hide_difficulty() #Hide the difficulty screen
+		show_play() #Show the in-game HUD 
+		is_playing = true #The game is playing!
 
-func transition(new_area):
-	if new_area == "difficulty":
+#This handles moving between menu screens
+func transition(new_screen):
+	if new_screen == "difficulty": #Checks for the new screen
 		hide_start()
 		show_difficulty()
-	if new_area == "title":
+	if new_screen == "title":
 		show_start("")
 		hide_difficulty()
 
+#Handles starting the game
 func start_game(type):
-	show_play()
-	hide_difficulty()
-	hide_start()
-	is_playing = true
-	System.difficulty = type
-	get_tree().change_scene("res://Raea Adams/Scenes/Main.tscn")
+	System.difficulty = type #Sets system difficulty
+	get_tree().change_scene("res://Raea Adams/Scenes/Main.tscn") #Moves player to the game scene!
 
 #Timed mode only
 func pause():
 	is_playing = false
 	show_start("pause")
 
+#Quits the game
 func quit_game():
 	get_tree().quit()
 
+#Shows the title screen
 func show_start(param):
 	$TitleScreen.show()
 	if param == "pause":
 		hide_play()
 		$TitleScreen/NewGame.show()
 
+#Hides the title screen
 func hide_start():
 	$TitleScreen.hide()
 
+#Shows the difficulty screen
 func show_difficulty():
 	$DifficultyScreen.show()
 
+#Hides the difficulty screen
 func hide_difficulty():
 	$DifficultyScreen.hide()
 
+#Shows in-game HUD
 func show_play():
 	$PlaySpace.show()
 
+#Hides in-game HUD
 func hide_play():
 	$PlaySpace.hide()
+
+func play_memory(memory):
+	get_node("/root/PlaySpace/Player").paused = true
+	$MemoryAnim.play("Memory%s" % memory)
+
+func memory_finished(anim_name):
+	get_node("/root/PlaySpace/Player").paused = false
+	$Memories.hide()
+	$MemoryAnim.stop()

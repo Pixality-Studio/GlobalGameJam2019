@@ -1,4 +1,6 @@
 extends Node
+#Singleton that holds system information
+
 
 #Difficulty list:
 #0: Zen

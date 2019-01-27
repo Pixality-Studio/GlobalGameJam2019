@@ -1,7 +1,24 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Raea Adams/Scripts/HUD.gd" type="Script" id=1]
 [ext_resource path="res://Raea Adams/Visuals/Fonts/MainFont.TTF" type="DynamicFontData" id=2]
+[ext_resource path="res://Raea Adams/Visuals/UI/Memory_UI_DeSatur.png" type="Texture" id=3]
+[ext_resource path="res://Raea Adams/Visuals/UI/Memory1/Mem1_Normal.png" type="Texture" id=4]
+[ext_resource path="res://Raea Adams/Visuals/UI/Memory1/Mem1_Pressed.png" type="Texture" id=5]
+[ext_resource path="res://Raea Adams/Visuals/UI/Memory1/Mem1_Hover.png" type="Texture" id=6]
+[ext_resource path="res://Raea Adams/Visuals/UI/Memory1/Mem1_Disabled.png" type="Texture" id=7]
+[ext_resource path="res://Raea Adams/Visuals/UI/Memory2/Mem2_Normal.png" type="Texture" id=8]
+[ext_resource path="res://Raea Adams/Visuals/UI/Memory2/Mem2_Mem_Pressed.png" type="Texture" id=9]
+[ext_resource path="res://Raea Adams/Visuals/UI/Memory2/Mem2_Hover.png" type="Texture" id=10]
+[ext_resource path="res://Raea Adams/Visuals/UI/Memory2/Mem2_Disabled.png" type="Texture" id=11]
+[ext_resource path="res://Raea Adams/Visuals/UI/Memory3/Mem3_Normal.png" type="Texture" id=12]
+[ext_resource path="res://Raea Adams/Visuals/UI/Memory3/Mem3_Pressed.png" type="Texture" id=13]
+[ext_resource path="res://Raea Adams/Visuals/UI/Memory3/Mem3_Hover.png" type="Texture" id=14]
+[ext_resource path="res://Raea Adams/Visuals/UI/Memory3/Mem3_Disabled.png" type="Texture" id=15]
+[ext_resource path="res://Raea Adams/Visuals/UI/Memory4/Mem4_Normal.png" type="Texture" id=16]
+[ext_resource path="res://Raea Adams/Visuals/UI/Memory4/Mem4_Pressed.png" type="Texture" id=17]
+[ext_resource path="res://Raea Adams/Visuals/UI/Memory4/Mem4_Hover.png" type="Texture" id=18]
+[ext_resource path="res://Raea Adams/Visuals/UI/Memory4/Mem4_Disabled.png" type="Texture" id=19]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -19,6 +36,42 @@ use_filter = false
 font_data = ExtResource( 2 )
 _sections_unfolded = [ "Font", "Settings" ]
 
+[sub_resource type="DynamicFont" id=3]
+
+size = 35
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 2 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="Animation" id=4]
+
+resource_name = "Memory1"
+length = 1.0
+loop = false
+step = 0.1
+
+[sub_resource type="Animation" id=5]
+
+resource_name = "Memory2"
+length = 1.0
+loop = false
+step = 0.1
+
+[sub_resource type="Animation" id=6]
+
+resource_name = "Memory3"
+length = 1.0
+loop = false
+step = 0.1
+
+[sub_resource type="Animation" id=7]
+
+resource_name = "Memory4"
+length = 1.0
+loop = false
+step = 0.1
+
 [node name="HUD" type="CanvasLayer"]
 
 layer = 1
@@ -34,10 +87,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 760.0
-margin_top = 677.0
-margin_right = 984.0
-margin_bottom = 826.0
+margin_left = 763.0
+margin_top = 798.0
+margin_right = 987.0
+margin_bottom = 947.0
 rect_scale = Vector2( 2, 2 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -108,9 +161,9 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 742.0
-margin_top = 599.0
+margin_top = 799.0
 margin_right = 997.0
-margin_bottom = 872.0
+margin_bottom = 1072.0
 rect_scale = Vector2( 2, 2 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -172,15 +225,32 @@ flat = true
 align = 1
 _sections_unfolded = [ "Rect", "custom_fonts" ]
 
-[node name="BackButton" type="Button" parent="DifficultyScreen" index="2"]
+[node name="PlaySpace" type="Sprite" parent="." index="2"]
+
+visible = false
+position = Vector2( -33, 320 )
+scale = Vector2( 1.3, 1.3 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Heart" type="Sprite" parent="PlaySpace" index="0"]
+
+position = Vector2( 72.1595, 520.65 )
+texture = ExtResource( 3 )
+vframes = 4
+hframes = 4
+frame = 2
+_sections_unfolded = [ "Animation" ]
+
+[node name="Memory1" type="TextureButton" parent="PlaySpace" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 132.0
-margin_right = 255.0
-margin_bottom = 194.0
+margin_left = 28.0
+margin_top = 486.0
+margin_right = 86.0
+margin_bottom = 548.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -188,31 +258,145 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_fonts/font = SubResource( 2 )
+disabled = true
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-text = "Back"
-flat = true
-align = 1
-_sections_unfolded = [ "Rect", "custom_fonts" ]
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 5 )
+texture_hover = ExtResource( 6 )
+texture_disabled = ExtResource( 7 )
+_sections_unfolded = [ "Textures" ]
 
-[node name="PlaySpace" type="VBoxContainer" parent="." index="2"]
+[node name="Memory2" type="TextureButton" parent="PlaySpace" index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 40.0
-margin_bottom = 40.0
+margin_left = 52.0
+margin_top = 533.0
+margin_right = 110.0
+margin_bottom = 595.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
-mouse_filter = 1
+focus_mode = 2
+mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-alignment = 0
+disabled = true
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 9 )
+texture_hover = ExtResource( 10 )
+texture_disabled = ExtResource( 11 )
+_sections_unfolded = [ "Textures" ]
+
+[node name="Memory3" type="TextureButton" parent="PlaySpace" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 71.0
+margin_top = 519.0
+margin_right = 116.0
+margin_bottom = 563.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+disabled = true
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 12 )
+texture_pressed = ExtResource( 13 )
+texture_hover = ExtResource( 14 )
+texture_disabled = ExtResource( 15 )
+_sections_unfolded = [ "Textures" ]
+
+[node name="Memory4" type="TextureButton" parent="PlaySpace" index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 82.0
+margin_top = 484.0
+margin_right = 127.0
+margin_bottom = 537.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+disabled = true
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 16 )
+texture_pressed = ExtResource( 17 )
+texture_hover = ExtResource( 18 )
+texture_disabled = ExtResource( 19 )
+_sections_unfolded = [ "Textures" ]
+
+[node name="Memories" type="Sprite" parent="." index="3"]
+
+visible = false
+
+[node name="PolaroidTemplate" type="Sprite" parent="Memories" index="0"]
+
+[node name="Title" type="Label" parent="Memories" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 657.0
+margin_top = 721.0
+margin_right = 1204.0
+margin_bottom = 777.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "MEMORY TITLE GOES HERE"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_colors", "custom_fonts" ]
+
+[node name="Memory1" type="Sprite" parent="." index="4"]
+
+[node name="MemoryAnim" type="AnimationPlayer" parent="." index="5"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/Memory1 = SubResource( 4 )
+anims/Memory2 = SubResource( 5 )
+anims/Memory3 = SubResource( 6 )
+anims/Memory4 = SubResource( 7 )
+blend_times = [  ]
 
 [connection signal="pressed" from="TitleScreen/NewGame" to="." method="transition" binds= [ "difficulty" ]]
 
@@ -222,6 +406,14 @@ alignment = 0
 
 [connection signal="pressed" from="DifficultyScreen/TimedMode" to="." method="start_game" binds= [ 1 ]]
 
-[connection signal="pressed" from="DifficultyScreen/BackButton" to="." method="transition" binds= [ "title" ]]
+[connection signal="pressed" from="PlaySpace/Memory1" to="." method="play_memory" binds= [ 1 ]]
+
+[connection signal="pressed" from="PlaySpace/Memory2" to="." method="play_memory" binds= [ 2 ]]
+
+[connection signal="pressed" from="PlaySpace/Memory3" to="." method="play_memory" binds= [ 3 ]]
+
+[connection signal="pressed" from="PlaySpace/Memory4" to="." method="play_memory" binds= [ 4 ]]
+
+[connection signal="animation_finished" from="MemoryAnim" to="." method="memory_finished"]
 
 
