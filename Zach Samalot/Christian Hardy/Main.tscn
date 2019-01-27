@@ -41,5 +41,6 @@ editor_draw_drag_margin = false
 [node name="Items" parent="." index="2" instance=ExtResource( 3 )]
 
 position = Vector2( 879.043, 203.568 )
+ItemName = null
 
 

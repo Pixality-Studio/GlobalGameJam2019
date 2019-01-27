@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/icon.png-8a125a5385b33b6f604994007e80277b.stex"
+path="res://.import/icon.png-67fdf053072fdbedb786944252454566.stex"
 
 [deps]
 
-source_file="res://Zach Samalot/Raea Adams/icon.png"
-dest_files=[ "res://.import/icon.png-8a125a5385b33b6f604994007e80277b.stex" ]
+source_file="res://Raea Adams/icon.png"
+dest_files=[ "res://.import/icon.png-67fdf053072fdbedb786944252454566.stex" ]
 
 [params]
 

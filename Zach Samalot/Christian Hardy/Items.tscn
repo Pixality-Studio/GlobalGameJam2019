@@ -1,25 +1,13 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://item.gd" type="Script" id=1]
 [ext_resource path="res://err.png" type="Texture" id=2]
-[ext_resource path="res://MainFont.TTF" type="DynamicFontData" id=3]
+[ext_resource path="res://press_enter.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 125.323, 96.9095 )
-
-[sub_resource type="DynamicFont" id=2]
-
-size = 50
-use_mipmaps = false
-use_filter = false
-font_data = ExtResource( 3 )
-_sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
-
-[sub_resource type="Theme" id=3]
-
-default_font = SubResource( 2 )
 
 [node name="Items" type="Area2D"]
 
@@ -46,17 +34,17 @@ _sections_unfolded = [ "Transform", "Z Index" ]
 
 _sections_unfolded = [ "Offset" ]
 
-[node name="Button" type="Button" parent="." index="2"]
+[node name="Button" type="TextureButton" parent="." index="2"]
 
 visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = -256.0
-margin_top = -167.0
-margin_right = 256.0
-margin_bottom = -59.0
+margin_left = -6.0
+margin_top = -196.0
+margin_right = 1042.0
+margin_bottom = 104.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -64,15 +52,16 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-theme = SubResource( 3 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-text = "Press Enter"
-flat = true
-align = 1
-_sections_unfolded = [ "Rect", "Textures", "Theme", "custom_fonts" ]
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 3 )
+texture_hover = ExtResource( 3 )
+texture_disabled = ExtResource( 3 )
+texture_focused = ExtResource( 3 )
+_sections_unfolded = [ "Textures", "Theme", "Visibility", "custom_fonts" ]
 
 [connection signal="area_entered" from="." to="." method="_on_Items_area_entered"]
 
