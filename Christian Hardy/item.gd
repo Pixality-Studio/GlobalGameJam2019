@@ -40,12 +40,14 @@ func _ready():
 	TextureLoad(ItemImage)
 
 func ButtonToggle():
+
 	if toggle:
 		toggle = false
 		$Button.visible = toggle
 	else:
 		toggle = true
 		$Button.visible = toggle
+
 
 func _on_Items_area_entered(area):
 	if area.is_in_group('player'):
@@ -62,19 +64,15 @@ func _on_Items_area_exited(area):
 	if area.is_in_group("player"):
 		ButtonToggle()
 
-
 func _on_Items_body_entered(body):
 	if body.is_in_group('player'):
-		print('in')
+#		print('in')
 		player = body
 		ButtonToggle()
-
-
 
 func _on_Items_body_exited(body):
 	if body.is_in_group("player"):
 		ButtonToggle()
-		
 
 
 func _process(delta):

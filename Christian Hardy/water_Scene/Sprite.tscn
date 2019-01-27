@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://water_Scene/New Piskel (1).png" type="Texture" id=1]
+[ext_resource path="res://Sprite.gd" type="Script" id=2]
+
+
+[sub_resource type="Shader" id=1]
+
+code = "shader_type canvas_item;
+//render_mode blend_mix;
+ uniform vec2 tiled_factor = vec2(5.0, 5.0);
+ uniform float aspect_ratio = 0.5;
+void fragment(){
+	
+	
+	//setting the colors
+	vec2 tiled_uvs = UV * tiled_factor;
+	tiled_uvs.y *= aspect_ratio;
+	
+	COLOR = texture(TEXTURE, tiled_uvs);
+	
+	
+//	COLOR = vec4(tiled_factor, 0.0, 1.0) ;
+	
+}
+"
+
+[sub_resource type="ShaderMaterial" id=2]
+
+render_priority = 0
+shader = SubResource( 1 )
+shader_param/tiled_factor = Vector2( 5, 5 )
+shader_param/aspect_ratio = null
+_sections_unfolded = [ "shader_param" ]
+
+[node name="water" type="Sprite" index="0"]
+
+material = SubResource( 2 )
+position = Vector2( 29.9894, 26.2823 )
+scale = Vector2( 0.850624, 0.808899 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+_sections_unfolded = [ "Animation", "Material", "Offset", "Transform", "Visibility" ]
+
+[connection signal="item_rect_changed" from="." to="." method="_on_water_item_rect_changed"]
+
+

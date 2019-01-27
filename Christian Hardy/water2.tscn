@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://water_Scene/waves.shader" type="Shader" id=1]
+[ext_resource path="res://water_Scene/New Piskel (1).png" type="Texture" id=2]
+[ext_resource path="res://water2.gd" type="Script" id=3]
+
+[sub_resource type="ShaderMaterial" id=1]
+
+render_priority = 0
+shader = ExtResource( 1 )
+shader_param/tiled_factor = Vector2( 10, 10 )
+shader_param/aspect_ratio = null
+shader_param/time_scale = Vector2( 1, 1 )
+shader_param/offset = Vector2( 2, 1 )
+shader_param/amplitude = Vector2( 0.1, 0.4 )
+_sections_unfolded = [ "shader_param" ]
+
+[node name="water" type="Sprite" index="0"]
+
+material = SubResource( 1 )
+position = Vector2( 29.0134, 32.0405 )
+scale = Vector2( 0.919881, 1 )
+texture = ExtResource( 2 )
+script = ExtResource( 3 )
+_sections_unfolded = [ "Material", "Transform", "Z Index" ]
+
+[connection signal="item_rect_changed" from="." to="." method="_on_water_item_rect_changed"]
+
+
