@@ -1,0 +1,29 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/Mem3_Hover.png-a66f12b11ad6360300162274e1c5a39c.stex"
+
+[deps]
+
+source_file="res://Raea Adams/Visuals/UI/Memory3/Mem3_Hover.png"
+dest_files=[ "res://.import/Mem3_Hover.png-a66f12b11ad6360300162274e1c5a39c.stex" ]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=false
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+stream=false
+size_limit=0
+detect_3d=false
+svg/scale=1.0

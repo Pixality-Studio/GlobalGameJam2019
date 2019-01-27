@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/icon.png-487276ed1e3a0c39cad0279d744ee560.stex"
+path="res://.import/icon.png-3e4d6321fc31a74f398d8294c4e82e30.stex"
 
 [deps]
 
-source_file="res://icon.png"
-dest_files=[ "res://.import/icon.png-487276ed1e3a0c39cad0279d744ee560.stex" ]
+source_file="res://Zach Lawrence/icon.png"
+dest_files=[ "res://.import/icon.png-3e4d6321fc31a74f398d8294c4e82e30.stex" ]
 
 [params]
 
