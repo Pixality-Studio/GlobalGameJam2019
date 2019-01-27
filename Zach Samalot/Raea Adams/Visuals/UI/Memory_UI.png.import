@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Pictures.png-f20e6a952b7782256294c19c64a90f05.stex"
+path="res://.import/Memory_UI.png-cace55f93a8c1ffeb7ffca88badb91f4.stex"
 
 [deps]
 
-source_file="res://Raea Adams/Visuals/Tilesheets/Pictures.png"
-dest_files=[ "res://.import/Pictures.png-f20e6a952b7782256294c19c64a90f05.stex" ]
+source_file="res://Raea Adams/Visuals/UI/Memory_UI.png"
+dest_files=[ "res://.import/Memory_UI.png-cace55f93a8c1ffeb7ffca88badb91f4.stex" ]
 
 [params]
 
@@ -16,7 +16,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -25,5 +25,5 @@ process/premult_alpha=false
 process/HDR_as_SRGB=false
 stream=false
 size_limit=0
-detect_3d=false
+detect_3d=true
 svg/scale=1.0
