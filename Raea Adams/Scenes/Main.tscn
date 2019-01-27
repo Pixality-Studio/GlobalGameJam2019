@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://Raea Adams/Scenes/Main.gd" type="Script" id=1]
+[ext_resource path="res://Raea Adams/Main.gd" type="Script" id=1]
 [ext_resource path="res://Raea Adams/Scenes/HUD.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Raea Adams/Visuals/Tilesheets/MainTileset.tres" type="TileSet" id=3]
 [ext_resource path="res://Raea Adams/Scenes/Item.tscn" type="PackedScene" id=4]
@@ -8,7 +8,7 @@
 [ext_resource path="res://Raea Adams/Scenes/House.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Raea Adams/Visuals/Fonts/MainFont.TTF" type="DynamicFontData" id=7]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 
 resource_name = "Intro"
 length = 1.0
@@ -39,7 +39,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=2]
 
 size = 50
 use_mipmaps = false
@@ -166,7 +166,7 @@ autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/Intro = SubResource( 2 )
+anims/Intro = SubResource( 1 )
 blend_times = [  ]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." index="12"]
@@ -212,7 +212,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 text = "I've lost my way....
 		Everything is pain....
 					I must fix this corruption...
